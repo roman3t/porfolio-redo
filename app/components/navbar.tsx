@@ -5,15 +5,15 @@ import { TabletNavbar } from "./nav/TabletNavbar";
 export default function Navbar() {
   return (
     <>
-      <div className="block sm:hidden">
+      <div className="block tablet:hidden">
         <MobileNavbar />
       </div>
 
-      <div className="hidden md:block xl:hidden border border-red-500">
+      <div className="hidden tablet:block xl:hidden border border-red-500">
         <TabletNavbar />
       </div>
 
-      <div className="hidden xl:block">
+      <div className="hidden lg:block">
         <Sidebar />
       </div>
     </>

@@ -7,7 +7,7 @@ export default function GuidelinesIntro({ sections }: { sections: Section[] }) {
     <section>
       <div className="overflow-hidden">
         <div
-          className="relative flex h-65.5 items-center justify-center md:h-135 "
+          className="mt-12 md:mt-0 relative flex h-65.5 items-center justify-center md:h-135"
           style={{
             background:
               "radial-gradient(120% 120% at 18% 20%, #BFD0DA 0%, rgba(191,208,218,0.45) 25%, rgba(191,208,218,0) 48%), radial-gradient(120% 120% at 45% 40%, #F8C46C 0%, rgba(248,196,108,0.75) 35%, rgba(248,196,108,0) 62%), radial-gradient(120% 120% at 85% 60%, #F45F00 0%, rgba(244,95,0,0.85) 45%, rgba(244,95,0,0) 70%)",

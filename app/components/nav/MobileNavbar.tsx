@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { Text } from "../ui/Text";
 
 type NavItem = { label: string; number: string; href: string };
 
@@ -20,7 +21,6 @@ export function MobileNavbar() {
     []
   );
 
-  // lock scroll cuando el drawer está abierto
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -30,7 +30,6 @@ export function MobileNavbar() {
     };
   }, [open]);
 
-  // ESC para cerrar
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -41,35 +40,28 @@ export function MobileNavbar() {
   }, [open]);
 
   return (
-    <header className="block tablet:hidden">
-      {/* Top bar: 375w, 48h; inner content 343w (375-32) */}
-      <div className="w-full bg-white">
-        <div className="mx-auto w-[375px]">
-          <div className="flex h-[48px] items-center justify-between px-[16px]">
-            <div className="text-[18px] font-medium text-text-1">↩︎Redo</div>
+    <header className="relative z-50 tablet:hidden">
+      <div className="fixed w-full bg-white px-4">
+        <div className="flex h-12 items-center justify-between px-4">
+          <div className="text-[18px] font-medium">↩︎Redo</div>
 
-            {/* Figma muestra 32x16 Hug */}
-            <button
-              type="button"
-              className="h-[16px] w-[32px] text-[14px] leading-[16px] text-text-1"
-              onClick={() => setOpen(true)}
-              aria-label="Open menu"
-            >
-              Menu
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-label="Open menu"
+          >
+            <Text variant={"link"}>{open ? "Close" : "Menu"}</Text>
+          </button>
         </div>
       </div>
 
-      {/* Drawer */}
       {open && (
         <div
-          className="fixed inset-0 z-50"
+          className="fixed inset-0 z-50 mt-12"
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
         >
-          {/* overlay gris */}
           <button
             type="button"
             className="absolute inset-0 bg-black/20"
@@ -77,66 +69,66 @@ export function MobileNavbar() {
             onClick={() => setOpen(false)}
           />
 
-          {/* panel: 343w, 416h; centrado como en tu captura */}
-          <div className="absolute left-1/2 top-[48px] w-[343px] -translate-x-1/2 bg-white">
-            {/* header del panel */}
-            <div className="flex items-center justify-between px-[16px] pt-[16px]">
-              <div className="text-[18px] font-medium text-text-1">↩︎Redo</div>
-
-              <button
-                type="button"
-                className="text-[14px] leading-[16px] text-text-1"
-                onClick={() => setOpen(false)}
-                aria-label="Close menu"
-              >
-                Close
-              </button>
+          <div className="absolute left-1/2 w-full -translate-x-1/2 bg-white">
+            <div className="px-4">
+              <div className="h-px w-full bg-divider-1/10 bg-black/10" />
             </div>
 
-            {/* divider */}
-            <div className="mt-[12px] h-px w-full bg-divider-1/10" />
-
-            {/* body */}
-            <div className="px-[16px] pb-[20px] pt-[18px]">
+            <div className="px-4 pb-5 pt-4.5">
               <nav>
-                <ul className="flex flex-col gap-[22px]">
+                <ul className="flex flex-col gap-6">
                   {navItems.map((item) => (
                     <li key={item.number}>
                       <Link
                         href={item.href}
-                        className="flex items-baseline gap-1 text-text-1"
+                        className="flex items-baseline gap-1"
                         onClick={() => setOpen(false)}
                       >
-                        <span className="text-[16px] font-medium">
+                        <Text as="span" variant="link" className="">
                           {item.label}
-                        </span>
-                        <span className="text-[10px] font-medium text-text-2">
+                        </Text>
+
+                        <Text
+                          as="span"
+                          variant="display"
+                          className="-translate-y-[2.5px] -translate-x-1 text-[#B1B1B1]"
+                        >
                           {item.number}
-                        </span>
+                        </Text>
                       </Link>
                     </li>
                   ))}
                 </ul>
               </nav>
 
-              {/* divider */}
-              <div className="mt-[20px] h-px w-full bg-divider-1/10" />
+              <div className="mt-5 h-px w-full bg-divider-1/10 bg-black/10" />
 
-              {/* footer actions */}
-              <div className="mt-[18px] flex flex-col gap-[18px]">
+              <div className="mt-4.5 flex flex-col gap-4.5">
                 <Link
                   href="#download"
                   className="text-[14px] text-text-2"
                   onClick={() => setOpen(false)}
                 >
-                  Download
+                  <Text
+                    as="span"
+                    variant="link"
+                    className="text-text-1 text-[#575757]"
+                  >
+                    Download
+                  </Text>
                 </Link>
                 <Link
                   href="#contact"
                   className="text-[14px] text-text-2"
                   onClick={() => setOpen(false)}
                 >
-                  Contact
+                  <Text
+                    as="span"
+                    variant="link"
+                    className="text-text-1 text-[#575757]"
+                  >
+                    Contact Us
+                  </Text>
                 </Link>
               </div>
             </div>

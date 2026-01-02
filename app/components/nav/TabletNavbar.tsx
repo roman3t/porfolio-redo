@@ -31,9 +31,9 @@ function NavItemLink({ item }: { item: NavItem }) {
 export function TabletNavbar() {
   return (
     <header className="relative">
-      <div className="mx-auto w-200 bg-white fixed z-50 w-full  px-8">
+      <div className="mx-auto h-22 bg-white fixed z-50 w-full px-8 border-b border-b-black/10">
         <div className="flex flex-col">
-          <div className="flex items-center justify-between px-[16px] py-[16px]">
+          <div className="flex items-center justify-between h-11 px-[16px] py-[16px]">
             <div className="text-[18px] font-medium text-black">↩︎Redo</div>
             <div className="flex items-center gap-[16px] text-[13px] text-black/60">
               <Text variant={"caption2"} className="text-[#575757]">
@@ -44,8 +44,9 @@ export function TabletNavbar() {
               </Text>
             </div>
           </div>
-          <div className="h-px w-full bg-black/10" />
-          <nav className="px-[16px] py-[14px]">
+          <div className="h-px w-full bg-divider-1/10 bg-black/10" />
+
+          <nav className="h-11 px-[16px] py-[14px]">
             <ul className="flex items-center justify-between">
               {navItems.map((item) => (
                 <li key={item.number}>

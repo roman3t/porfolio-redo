@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  /* --breakpoint-sm: 23.4375rem; */
+  
+  --breakpoint-tablet: 50rem;
+  --breakpoint-md: 50rem;
+  --breakpoint-desktop: 79.9375rem;
+}
+
+
 :root {
   --accent-1: 0 0 0;
   --accent-2: 244 95 0;
