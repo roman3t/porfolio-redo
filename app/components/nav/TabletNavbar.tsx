@@ -1,3 +1,5 @@
+import { Text } from "../ui/Text";
+
 type NavItem = { label: string; number: string; href: string };
 
 const navItems: NavItem[] = [
@@ -15,37 +17,34 @@ function NavItemLink({ item }: { item: NavItem }) {
       <span className="text-[14px] font-medium text-black/90">
         {item.label}
       </span>
-      <span className="text-[10px] font-medium text-black/40">
+      <Text
+        as="span"
+        variant="display"
+        className="text-text-2 -translate-y-1 -translate-x-1 text-[#575757]"
+      >
         {item.number}
-      </span>
+      </Text>
     </a>
   );
 }
 
 export function TabletNavbar() {
   return (
-    <header className="">
-      {/* Frame 800px / height ~88px */}
-      <div className="mx-auto w-[800px] bg-white">
+    <header className="relative">
+      <div className="mx-auto w-200 bg-white fixed z-50 w-full  px-8">
         <div className="flex flex-col">
-          {/* Row 1 */}
           <div className="flex items-center justify-between px-[16px] py-[16px]">
             <div className="text-[18px] font-medium text-black">↩︎Redo</div>
-
             <div className="flex items-center gap-[16px] text-[13px] text-black/60">
-              <a href="#download" className="hover:text-black/80">
+              <Text variant={"caption2"} className="text-[#575757]">
                 Download Kit
-              </a>
-              <a href="#contact" className="hover:text-black/80">
+              </Text>
+              <Text variant={"caption2"} className="text-[#575757]">
                 Contact Us
-              </a>
+              </Text>
             </div>
           </div>
-
-          {/* Divider */}
           <div className="h-px w-full bg-black/10" />
-
-          {/* Row 2 */}
           <nav className="px-[16px] py-[14px]">
             <ul className="flex items-center justify-between">
               {navItems.map((item) => (

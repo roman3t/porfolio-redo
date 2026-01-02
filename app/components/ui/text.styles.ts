@@ -1,4 +1,3 @@
-// components/ui/text.styles.ts
 import { cva } from "class-variance-authority";
 
 export const textStyles = cva("", {

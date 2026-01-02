@@ -1,10 +1,13 @@
 import { sections } from "@/app/content/guidelines.data";
-import SectionRenderer from "@/app/components/blocks/SectionRenderer";
+import SectionRenderer from "@/app/components/section-renderer/SectionRenderer";
+import GuidelinesIntro from "./components/guidelines/GuidelinesIntro";
 
 export default function Page() {
   return (
     <main className="">
-      <div className="mx-auto w-full max-w-[1120px] px-5 md:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-[1120px] ">
+        {/* px-5 md:px-8 lg:px-10 */}
+        <GuidelinesIntro sections={sections} />
         {sections.map((s) => (
           <SectionRenderer key={s.id} section={s} />
         ))}

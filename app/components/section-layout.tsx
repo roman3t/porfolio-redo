@@ -14,17 +14,13 @@ export default function SectionLayout({
         lg:grid-cols-12 lg:gap-12
       "
     >
-      {/* Columna izquierda: título + número */}
+
       <div className="lg:col-span-5 xl:col-span-4">
-        <div className="sticky top-24">
-          {left}
-        </div>
+        <div className="sticky top-24">{left}</div>
       </div>
 
-      {/* Columna derecha: contenido */}
-      <div className="lg:col-span-7 xl:col-span-8">
-        {right}
-      </div>
+
+      <div className="lg:col-span-7 xl:col-span-8">{right}</div>
     </section>
   );
 }

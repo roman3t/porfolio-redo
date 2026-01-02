@@ -1,7 +1,7 @@
 export function SidebarHeader() {
   return (
-    <div className="px-[32px] pt-[30px] pb-[30px]">
-      <span className="text-[18px] font-medium">↩︎Redo</span>
+    <div className="h-[71.83px] py-7.5">
+      <img src={"img/logo.png"} alt="Logo redo" />
     </div>
   );
 }

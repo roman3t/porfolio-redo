@@ -1,0 +1,56 @@
+import type { ReactNode } from "react";
+
+import type { Block } from "../../content/guidelines.data";
+
+import LeadBlock from "../blocks/LeadBlock";
+import SubheadingBlock from "../blocks/SubheadingBlock";
+import ImageBlock from "../blocks/ImageBlock";
+import ToneVoiceBlock from "../blocks/ToneVoiceBlock";
+import SampleCopyBlock from "../blocks/SampleCopyBlock";
+import GalleryBlock from "../blocks/GalleryBlock";
+import DontsBlock from "../blocks/DontsBlock";
+import PartnershipsBlock from "../blocks/PartnershipsBlock";
+
+import PaletteSectionBlock from "../blocks/PaletteSectionBlock";
+import GradientSectionBlock from "../blocks/GradientSectionBlock";
+import TypePairingBlock from "../blocks/TypePairingBlock";
+import TypeSpecimenBlock from "../blocks/TypeSpecimenBlock";
+import SizingBlock from "../blocks/SizingBlock";
+import ArtDirectionBlock from "../blocks/ArtDirection.Block";
+
+type Renderer<T> = (block: T) => ReactNode;
+
+const renderers: Partial<Record<Block["type"], Renderer<any>>> = {
+  lead: (b) => <LeadBlock block={b} />,
+  subheading: (b) => <SubheadingBlock block={b} />,
+  image: (b) => <ImageBlock block={b} />,
+
+  toneVoice: (b) => <ToneVoiceBlock block={b} />,
+  sampleCopy: (b) => <SampleCopyBlock block={b} />,
+  gallery: (b) => <GalleryBlock block={b} />,
+  donts: (b) => <DontsBlock block={b} />,
+  partnerships: (b) => <PartnershipsBlock block={b} />,
+
+  paletteSection: (b) => (
+    <PaletteSectionBlock title={b.title} swatches={b.swatches} />
+  ),
+  gradientSection: (b) => (
+    <GradientSectionBlock title={b.title} gradients={b.gradients} />
+  ),
+
+  typePairing: (b) => (
+    <TypePairingBlock preview={b.preview} paragraphs={b.paragraphs} />
+  ),
+  typeSpecimen: (b) => <TypeSpecimenBlock items={b.items} />,
+
+  sizing: (b) => (
+    <SizingBlock title={b.title} intro={b.intro} specimens={b.specimens} />
+  ),
+
+  artDirection: (b) => <ArtDirectionBlock items={b.items} />,
+};
+
+export function renderBlock(block: Block) {
+  const renderer = renderers[block.type];
+  return renderer ? renderer(block as any) : null;
+}

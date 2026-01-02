@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { Text } from "@/app/components/ui/Text";
+
 const items = [
   { label: "Brand Strategy", number: "01" },
   { label: "Personality", number: "02" },
@@ -9,16 +12,22 @@ const items = [
 
 export function SidebarNav() {
   return (
-    <nav className="px-[32px] pb-[30px]">
-      <ul className="flex flex-col gap-[10px]">
+    <nav className="pb-7.5">
+      <ul className="flex flex-col gap-2.5">
         {items.map((item) => (
           <li key={item.number}>
-            <a className="flex items-baseline gap-1 text-[16px] font-medium">
-              <span>{item.label}</span>
-              <span className="text-[11px] opacity-50">
+            <Link
+              href={`#${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+              className="flex items-baseline gap-1"
+            >
+              <Text as="span" variant="link" className="text-text-1 ">
+                {item.label}
+              </Text>
+
+              <Text as="span" variant="display" className="text-text-2 -translate-y-1 -translate-x-1 text-[#575757]">
                 {item.number}
-              </span>
-            </a>
+              </Text>
+            </Link>
           </li>
         ))}
       </ul>
