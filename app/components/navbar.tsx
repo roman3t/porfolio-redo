@@ -9,7 +9,7 @@ export default function Navbar() {
         <MobileNavbar />
       </div>
 
-      <div className="hidden tablet:block xl:hidden border border-red-500">
+      <div className="hidden tablet:block lg:hidden">
         <TabletNavbar />
       </div>
 

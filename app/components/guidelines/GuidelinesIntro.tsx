@@ -19,8 +19,8 @@ export default function GuidelinesIntro({ sections }: { sections: Section[] }) {
         </div>
 
         <div className="bg-white">
-          <div className="pt-8 md:flex px-8 md:h-[416px] lg:h-[438px]">
-            <div className="w-[316px] gap-8">
+          <div className="pt-8 md:flex px-8 md:h-104 lg:h-109.5">
+            <div className="w-79 gap-8">
               <Text variant={"h1"}>
                 Brand
                 <br />
@@ -28,7 +28,7 @@ export default function GuidelinesIntro({ sections }: { sections: Section[] }) {
               </Text>
             </div>
 
-            <div className="md:max-w-[388px] lg:max-w-[515px] text-[#575757] space-y-6">
+            <div className="md:max-w-97 lg:max-w-128.75 text-[#575757] space-y-6">
               <Text className="leading-[1.55] text-sm" variant={"paragraph"}>
                 This guide defines the visual language, design style, and
                 principles that shape a clear and consistent brand experience,
