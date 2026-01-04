@@ -7,7 +7,7 @@ export default function GuidelinesIntro({ sections }: { sections: Section[] }) {
     <section>
       <div className="overflow-hidden">
         <div
-          className="mt-12 md:mt-0 relative flex h-65.5 items-center justify-center md:h-135"
+          className=" md:mt-0 relative flex h-65.5 items-center justify-center md:h-135"
           style={{
             background:
               "radial-gradient(120% 120% at 18% 20%, #BFD0DA 0%, rgba(191,208,218,0.45) 25%, rgba(191,208,218,0) 48%), radial-gradient(120% 120% at 45% 40%, #F8C46C 0%, rgba(248,196,108,0.75) 35%, rgba(248,196,108,0) 62%), radial-gradient(120% 120% at 85% 60%, #F45F00 0%, rgba(244,95,0,0.85) 45%, rgba(244,95,0,0) 70%)",
@@ -18,66 +18,82 @@ export default function GuidelinesIntro({ sections }: { sections: Section[] }) {
           </Text>
         </div>
 
-        <div className="bg-white">
-          <div className="pt-8 md:flex px-8 md:h-104 lg:h-109.5">
-            <div className="w-79 gap-8">
+        <div className="px-5 md:px-8 ">
+          <div
+            className="
+
+                  md:grid md:grid-cols-1
+                  md:grid-cols-[316px_1fr]
+                  md:gap-8
+                  lg:grid-cols-[419px_1fr]
+                  md:h-104 
+                  lg:h-101.5
+                  
+
+                  mt-8
+                  pb-20
+                  border-b
+                  border-black/10
+            "
+          >
+            <div className="mb-8 md:w-79 lg:w-[419px] bg-red-300">
               <Text variant={"h1"}>
                 Brand
-                <br />
-                Guidelines
+                <br className="hidden md:block" /> Guidelines
               </Text>
             </div>
 
-            <div className="md:max-w-97 lg:max-w-128.75 text-[#575757] space-y-6">
-              <Text className="leading-[1.55] text-sm" variant={"paragraph"}>
-                This guide defines the visual language, design style, and
-                principles that shape a clear and consistent brand experience,
-                no matter the team or area of expertise.
-              </Text>
-              <Text className="leading-[1.55] text-sm" variant={"paragraph"}>
-                At its core, Redo is about precision and clarity—just like our
-                mission to correct financial errors and optimize balance sheets.
-                This guide lays out the essential design standards that bring
-                our brand to life, from our color system and typography to
+            <div
+              className="text-[#575757] 
+                        md:space-y-6
+                        md:bg-yellow-400
+                        lg:bg-blue-600
+                      "
+            >
+              <Text variant={"paragraph"} preserveNewlines>
+                {`This guide defines the visual language, design style, and principles that shape a clear and consistent brand experience, no matter the team or area of expertise.
+
+                At its core, Redo is about precision and clarity—just like our mission to correct financial errors and optimize balance sheets. This guide lays out the essential design standards that bring our brand to life, from our color system and typography to
                 accessibility benchmarks and documentation.
-              </Text>
-              <Text className="leading-[1.55] text-sm" variant={"paragraph"}>
-                Whether you’re designing for digital platforms or printed
-                materials, these guidelines ensure every touchpoint reflects the
-                trust and efficiency at the heart of Redo.
+
+                Whether you’re designing for digital platforms or printed materials, these guidelines ensure every touchpoint reflects the trust and efficiency at the heart of Redo.`}
               </Text>
             </div>
           </div>
 
-          <div className="border-t border-black/10 px-5 py-10 tablet:px-8 desktop:px-10">
-            <div className="grid gap-8 tablet:grid-cols-[360px_1fr] desktop:grid-cols-[420px_1fr]">
-              <Text as="div" variant="paragraphBold" className="text-black/90">
-                Contents
-              </Text>
+          <div
+            className="
+                  mt-8
+                  pb-20
+                  border-b
+                  border-black/10"
+          >
+            <Text as="div" variant="h2" className="text-black mb-7.5">
+              Contents
+            </Text>
 
-              <ol className="space-y-2">
-                {sections.map((s) => (
-                  <li key={s.id}>
-                    <Link
-                      href={`#${s.id}`}
-                      className="inline-flex items-center gap-2 hover:text-black"
+            <ol className="space-y-2">
+              {sections.map((s) => (
+                <li key={s.id}>
+                  <Link
+                    href={`#${s.id}`}
+                    className="inline-flex items-center gap-2 hover:text-black"
+                  >
+                    <Text
+                      as="span"
+                      variant={"h2"}
+                      className="w-7 text-[#575757]"
                     >
-                      <Text
-                        as="span"
-                        variant="link"
-                        className="w-7 text-black/60"
-                      >
-                        {s.number}
-                      </Text>
+                      {s.number}
+                    </Text>
 
-                      <Text as="span" variant="link" className="text-black/90">
-                        {s.title}
-                      </Text>
-                    </Link>
-                  </li>
-                ))}
-              </ol>
-            </div>
+                    <Text as="span" variant="h2" className="text-black">
+                      {s.title}
+                    </Text>
+                  </Link>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </div>

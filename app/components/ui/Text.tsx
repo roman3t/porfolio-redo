@@ -6,15 +6,24 @@ import { cn } from "@/app/lib/cn";
 type TextProps = React.HTMLAttributes<HTMLElement> &
   VariantProps<typeof textStyles> & {
     as?: React.ElementType;
+    preserveNewlines?: boolean;
   };
 
 export function Text({
   as: Component = "p",
   variant,
   className,
+  preserveNewlines,
   ...props
 }: TextProps) {
   return (
-    <Component className={cn(textStyles({ variant }), className)} {...props} />
+    <Component
+      className={cn(
+        textStyles({ variant }),
+        preserveNewlines && "whitespace-pre-line",
+        className
+      )}
+      {...props}
+    />
   );
 }

@@ -5,7 +5,16 @@ import { renderBlock } from "./renderBlock";
 
 export default function SectionRenderer({ section }: { section: Section }) {
   return (
-    <div className="py-14 md:py-20 lg:py-24">
+    <div className="
+                  mt-8
+                  pb-20
+                  px-5
+                  md:py-22
+                  lg:pt-8
+                  lg:pb-30
+                  border-b
+                  border-black/10
+            ">
       <SectionLayout
         left={
           <Heading01>
@@ -14,7 +23,7 @@ export default function SectionRenderer({ section }: { section: Section }) {
           </Heading01>
         }
         right={
-          <div className="space-y-10">
+          <div className="space-y-8">
             {section.blocks.map((block, idx) => (
               <div key={idx}>{renderBlock(block)}</div>
             ))}

@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={rethinkSans.variable}>
         <Navbar />
-        <main className="xl:ml-60">{children}</main>
+        <main className="lg:ml-62.5">{children}</main>
       </body>
     </html>
   );

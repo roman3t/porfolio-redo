@@ -1,23 +1,30 @@
+import { cn } from "@/app/lib/cn";
+
 type ImageCardProps = {
   src: string;
   alt: string;
-  height?: number | string;
+  heightClass?: string;
   className?: string;
 };
 
 export default function ImageCard({
   src,
   alt,
-  height,
+  heightClass,
   className,
 }: ImageCardProps) {
   return (
-    <div className={`w-full overflow-hidden rounded-xl bg-black/5 ${className ?? ""}`}>
+    <div
+      className={cn(
+        "w-full overflow-hidden bg-black/5",
+        heightClass,
+        className
+      )}
+    >
       <img
         src={src}
         alt={alt}
-        className="w-full object-cover"
-        style={height ? { height } : undefined}
+        className="h-full w-full object-cover"
       />
     </div>
   );

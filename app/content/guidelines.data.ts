@@ -1,6 +1,6 @@
 export type Block =
   | { type: "lead"; text: string[] }
-  | { type: "image"; src: string; alt: string; height?: number }
+  | { type: "image"; src: string; alt: string; heightClass?: string }
   | { type: "subheading"; text: string }
   | {
       type: "contents";
@@ -109,13 +109,13 @@ export const sections: Section[] = [
         type: "image",
         src: "/img/brand-strategy.png",
         alt: "Person holding a tablet",
-        height: 346,
+        heightClass: "h-[345.91px] md:h-[363.46px] lg:h-[482.2px]",
       },
       {
         type: "lead",
         text: [
-          "Born from the need for financial clarity, Redo was founded on a simple yet powerful mission: to correct financial errors and optimize balance sheets...",
-          "At Redo, we don’t just fix mistakes—we empower businesses to move forward with accuracy and efficiency...",
+          "Born from the need for financial clarity, Redo was founded on a simple yet powerful mission: to correct financial errors and optimize balance sheets. We believe that precision is the key to profitability, and that businesses shouldn’t be held back by avoidable losses. With advanced technology and expert analysis, we uncover discrepancies, eliminate inefficiencies, and restore confidence in the numbers that drive success.",
+          "At Redo, we don’t just fix mistakes—we empower businesses to move forward with accuracy and efficiency. Because when the numbers are right, the future looks even brighter.",
         ],
       },
     ],

@@ -10,17 +10,17 @@ export default function SectionLayout({
   return (
     <section
       className="
-        grid grid-cols-1 gap-10
-        lg:grid-cols-12 lg:gap-12
+        grid grid-cols-1 gap-3
+        md:grid-cols-12 md:gap-12
       "
     >
 
-      <div className="lg:col-span-5 xl:col-span-4">
+      <div className="md:col-span-5 xl:col-span-4">
         <div className="sticky top-24">{left}</div>
       </div>
 
 
-      <div className="lg:col-span-7 xl:col-span-8">{right}</div>
+      <div className="md:col-span-7 xl:col-span-8">{right}</div>
     </section>
   );
 }
