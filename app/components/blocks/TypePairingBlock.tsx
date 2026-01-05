@@ -1,47 +1,81 @@
+import * as React from "react";
 import Paragraph01 from "../paragraph-01";
+import type { ImageAsset } from "../../content/guidelines.types";
+import { cn } from "@/app/lib/cn";
 
-function applyHighlights(text: string, highlights?: { match: string; className: string }[]) {
+type Highlight = { match: string; className: string };
+
+function applyHighlights(text: string, highlights?: Highlight[]) {
   if (!highlights?.length) return text;
 
-  // Simple: reemplaza el primer match por un <span>. Si necesitas múltiples,
-  // se puede hacer tokenizer, pero para tu caso basta.
-  const h = highlights[0];
-  const parts = text.split(h.match);
-  if (parts.length === 1) return text;
+  let nodes: React.ReactNode[] = [text];
 
-  return (
-    <>
-      {parts[0]}
-      <span className={h.className}>{h.match}</span>
-      {parts.slice(1).join(h.match)}
-    </>
-  );
+  for (const h of highlights) {
+    nodes = nodes.flatMap((node) => {
+      if (typeof node !== "string") return [node];
+
+      const parts = node.split(h.match);
+      if (parts.length === 1) return [node];
+
+      const out: React.ReactNode[] = [];
+      parts.forEach((part, idx) => {
+        if (part) out.push(part);
+        if (idx < parts.length - 1) {
+          out.push(
+            <span key={`${h.match}-${idx}`} className={h.className}>
+              {h.match}
+            </span>
+          );
+        }
+      });
+      return out;
+    });
+  }
+
+  return <>{nodes}</>;
 }
 
 export default function TypePairingBlock({
   preview,
   paragraphs,
 }: {
-  preview: { src: string; alt: string; height?: number };
-  paragraphs: { text: string; highlights?: { match: string; className: string }[] }[];
+  preview: ImageAsset;
+  paragraphs: { text: string; highlights?: Highlight[] }[];
 }) {
-  return (
-    <section className="space-y-6">
-      <div className="w-full overflow-hidden rounded-xl bg-black/5">
-        <img
-          src={preview.src}
-          alt={preview.alt}
-          className="w-full object-cover"
-          style={preview.height ? { height: preview.height } : undefined}
-        />
-      </div>
+  const previewClass =
+    preview.size?.kind === "class" ? preview.size.value : undefined;
 
-      <div className="space-y-5">
-        {paragraphs.map((p, i) => (
-          <Paragraph01 key={i}>
-            {applyHighlights(p.text, p.highlights) as any}
-          </Paragraph01>
-        ))}
+  const previewStyle =
+    preview.size?.kind === "px"
+      ? ({ height: preview.size.value } as const)
+      : undefined;
+
+  return (
+    <section className="grid grid-cols-1 md:grid-cols-12 md:gap-12">
+      <div className="hidden md:block md:col-span-6" />
+
+      <div className="md:col-span-6">
+        <div className="space-y-6">
+          <div
+            className={cn("w-full overflow-hidden bg-black/5", previewClass)}
+            style={previewStyle}
+          >
+            <img
+              src={preview.src}
+              alt={preview.alt}
+              className="h-full w-full object-cover"
+              draggable={false}
+            />
+          </div>
+
+          <div className="space-y-5">
+            {paragraphs.map((p, i) => (
+              <Paragraph01 key={i}>
+                {applyHighlights(p.text, p.highlights) as any}
+              </Paragraph01>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

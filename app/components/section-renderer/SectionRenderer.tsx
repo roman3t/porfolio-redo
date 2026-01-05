@@ -28,12 +28,11 @@ function getBlockGridClasses(block: RenderableBlock) {
     }
 
     case "image": {
-      const layout = block.image.layout ?? "full"; // "normal" | "full"
+      const layout = block.image.layout ?? "full";
       const align = block.image.align ?? "right";
 
       if (layout === "full") return "col-span-12";
 
-      // layout="normal" ocupa 6 cols
       return align === "right"
         ? "col-span-12 md:col-span-6 md:col-start-7"
         : "col-span-12 md:col-span-6";
@@ -54,7 +53,6 @@ export default function SectionRenderer({ section }: { section: Section }) {
     <section
       className={cn(
         "mt-8 border-b border-black/10 px-5",
-        // Si md debe verse igual que lg:
         "pb-20 md:pt-8 md:pb-30"
       )}
     >

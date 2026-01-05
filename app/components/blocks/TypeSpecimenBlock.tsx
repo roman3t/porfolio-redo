@@ -11,7 +11,6 @@ export default function TypeSpecimenBlock({
 
           <div
             className={[
-              "whitespace-pre-line",
               it.font === "serif" ? "font-serif" : "font-sans",
               "text-[40px] leading-[1.1] tracking-[-0.02em] text-black",
             ].join(" ")}

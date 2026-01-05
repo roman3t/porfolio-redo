@@ -34,10 +34,10 @@ const renderers: Partial<Record<Block["type"], Renderer<any>>> = {
   donts: (b) => <DontsBlock block={b} />,
   partnerships: (b) => <PartnershipsBlock block={b} />,
 
-  paletteSection: (b) => (
+  palette: (b) => (
     <PaletteSectionBlock title={b.title} swatches={b.swatches} />
   ),
-  gradientSection: (b) => (
+  gradients: (b) => (
     <GradientSectionBlock title={b.title} gradients={b.gradients} />
   ),
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Section } from "@/app/content/guidelines.data";
+import type { Section } from "@/app/content/guidelines.types";
 import { Text } from "@/app/components/ui/Text";
 
 export default function GuidelinesIntro({ sections }: { sections: Section[] }) {

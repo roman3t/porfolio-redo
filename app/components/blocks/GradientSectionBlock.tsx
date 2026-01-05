@@ -10,13 +10,16 @@ export default function GradientSectionBlock({
   return (
     <section className="space-y-6">
       <Heading02>{title}</Heading02>
-
-      <div className="space-y-10">
+      
+      <div className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
         {gradients.map((g) => (
-          <div key={g.name} className="space-y-3">
+          <div key={g.name} className="min-w-0 space-y-3">
             <div
-              className="h-[120px] w-full max-w-[300px] rounded-md"
-              style={{ backgroundImage: g.css }}
+              className="w-full overflow-hidden"
+              style={{
+                aspectRatio: "16 / 9",
+                backgroundImage: g.css,
+              }}
             />
             <div className="text-[12px] leading-[1.2] text-black">{g.name}</div>
           </div>

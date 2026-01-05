@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Rethink_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer/footer";
 
 const rethinkSans = Rethink_Sans({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={rethinkSans.variable}>
         <Navbar />
         <main className="lg:ml-62.5">{children}</main>
+        <Footer />
       </body>
     </html>
   );

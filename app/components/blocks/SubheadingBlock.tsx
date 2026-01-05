@@ -1,4 +1,4 @@
-import { Block } from "@/app/content/guidelines.data";
+import type { Block } from "@/app/content/guidelines.types";
 import Heading02 from "../heading-02";
 
 export default function SubheadingBlock({
