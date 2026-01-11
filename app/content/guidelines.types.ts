@@ -65,7 +65,7 @@ export type PaletteBlock = BlockBase<"palette"> & {
 
 export type GradientsBlock = BlockBase<"gradients"> & {
   title: string;
-  gradients: { name: string; css: string }[];
+  gradients: { name: string; image: ImageAsset }[];
 };
 
 export type GalleryBlock = BlockBase<"gallery"> & {

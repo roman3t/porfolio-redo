@@ -301,19 +301,47 @@ export const sections: Section[] = [
         gradients: [
           {
             name: "Gradient 1",
-            css: "linear-gradient(135deg, #B6C9CF 0%, #FA9819 55%, #FF7A1A 100%)",
+            image: {
+              src: "/img/gradient1.png",
+              alt: "Gradient 1",
+              size: {
+                kind: "class",
+                value: "h-[166px] md:h-[215px] lg:h-[293px]",
+              },
+            },
           },
           {
             name: "Gradient 2",
-            css: "linear-gradient(135deg, #FA9819 0%, #B6C9CF 85%)",
+            image: {
+              src: "/img/gradient2.png",
+              alt: "Gradient 2",
+              size: {
+                kind: "class",
+                value: "h-[166px] md:h-[215px] lg:h-[293px]",
+              },
+            },
           },
           {
             name: "Gradient 3",
-            css: "linear-gradient(135deg, #FF6A00 0%, #8C3B00 45%, #FFC05A 100%)",
+            image: {
+              src: "/img/gradient3.png",
+              alt: "Gradient 3",
+              size: {
+                kind: "class",
+                value: "h-[166px] md:h-[215px] lg:h-[293px]",
+              },
+            },
           },
           {
             name: "Gradient 4",
-            css: "linear-gradient(135deg, #1E3D59 0%, #9ED8F5 55%, #1E3D59 100%)",
+            image: {
+              src: "/img/gradient4.png",
+              alt: "Gradient 4",
+              size: {
+                kind: "class",
+                value: "h-[166px] md:h-[215px] lg:h-[293px]",
+              },
+            },
           },
         ],
       },

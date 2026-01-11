@@ -56,8 +56,6 @@ export const textStyles = cva("", {
         text-[16px]
         leading-[120%]
         tracking-[-0.01em]
-        tablet:text-[24px]
-        desktop:text-[30px]
       `,
 
       caption2: `

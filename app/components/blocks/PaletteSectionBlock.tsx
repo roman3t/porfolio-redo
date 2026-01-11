@@ -12,7 +12,7 @@ export default function PaletteSectionBlock({
   swatches: Swatch[];
 }) {
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 mt-10">
       <Text variant={"h3"}>{title}</Text>
 
       <div className="grid grid-cols-1 gap-y-14 gap-x-10 md:grid-cols-4">
@@ -21,7 +21,7 @@ export default function PaletteSectionBlock({
             <div
               className={cn(
                 "mx-auto aspect-square w-full rounded-full",
-                "max-w-77.75 md:max-w-[260px] lg:max-w-[240px]"
+                "max-w-77.75 md:max-w-43 lg:max-w-57.5"
               )}
               style={{
                 backgroundColor: c.hex,
@@ -29,7 +29,7 @@ export default function PaletteSectionBlock({
               }}
             />
 
-            <div className="text-[12px] leading-[1.2] text-black">
+            <div className=" leading-[1.2] text-black">
               <Text variant={"caption2"}>{c.name}</Text>
               <Text variant={"caption1"}>Hex: {c.hex}</Text>
             </div>
