@@ -1,4 +1,3 @@
-import Heading02 from "../heading-02";
 import type { Block } from "../../content/guidelines.types";
 import { cn } from "@/app/lib/cn";
 import { Text } from "../ui/Text";

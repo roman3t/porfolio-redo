@@ -1,7 +1,7 @@
-import Heading01 from "../heading-01";
 import type { Section, Block } from "../../content/guidelines.types";
 import { renderBlock } from "./renderBlock";
 import { cn } from "@/app/lib/cn";
+import { Text } from "../ui/Text";
 
 type SectionHeaderBlock = {
   type: "sectionHeader";
@@ -57,10 +57,10 @@ export default function SectionRenderer({ section }: { section: Section }) {
         {blocks.map((block, idx) => (
           <div key={idx} className={cn(getBlockGridClasses(block), "px-5")}>
             {block.type === "sectionHeader" ? (
-              <Heading01>
+              <Text variant={"h1"}>
                 <span className="text-[#F45F00]">{block.number}</span>{" "}
                 <span>{block.title}</span>
-              </Heading01>
+              </Text>
             ) : (
               renderBlock(block)
             )}

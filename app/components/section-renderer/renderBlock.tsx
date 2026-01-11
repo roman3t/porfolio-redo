@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import type { Block } from "../../content/guidelines.types";
 
 import LeadBlock from "../blocks/LeadBlock";
-import SubheadingBlock from "../blocks/SubheadingBlock";
 import ImageBlock from "../blocks/ImageBlock";
 import ToneVoiceBlock from "../blocks/ToneVoiceBlock";
 import GalleryBlock from "../blocks/GalleryBlock";
@@ -24,7 +23,6 @@ type Renderer<T> = (block: T) => ReactNode;
 
 const renderers: Partial<Record<Block["type"], Renderer<any>>> = {
   lead: (b) => <LeadBlock block={b} />,
-  subheading: (b) => <SubheadingBlock block={b} />,
   image: (b) => <ImageBlock block={b} />,
 
   toneVoice: (b) => <ToneVoiceBlock block={b} />,

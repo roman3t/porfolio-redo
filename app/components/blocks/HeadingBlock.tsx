@@ -1,5 +1,5 @@
 import type { Block } from "../../content/guidelines.types";
-import Heading02 from "../heading-02";
+import { Text } from "../ui/Text";
 
 export default function HeadingBlock({
   block,
@@ -10,7 +10,7 @@ export default function HeadingBlock({
     <>
       <div className="border-b border-black/10 w-full col-span-12 mb-8" />
       <div className="mb-8">
-        <Heading02>{block.text}</Heading02>
+        <Text variant={"h2"}>{block.text}</Text>
       </div>
     </>
   );

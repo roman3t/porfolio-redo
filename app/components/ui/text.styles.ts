@@ -15,10 +15,9 @@ export const textStyles = cva("", {
         text-[30px]
         leading-[110%]
         tracking-[-0.01em]
-        tablet:text-[45px]
-        desktop:text-[60px]
+        md:text-[45px]
+        lg:text-[60px]
       `,
-
       h2: `
         font-medium
         text-[24px]

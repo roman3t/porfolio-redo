@@ -40,10 +40,6 @@ export type ImageBlock = BlockBase<"image"> & {
   image: ImageAsset;
 };
 
-export type SubheadingBlock = BlockBase<"subheading"> & {
-  text: string;
-};
-
 export type ContentsBlock = BlockBase<"contents"> & {
   items: { number: string; title: string; href: string }[];
 };
@@ -150,7 +146,6 @@ export type CardsGridBlock = BlockBase<"cardsGrid"> & {
 export type Block =
   | LeadBlock
   | ImageBlock
-  | SubheadingBlock
   | ContentsBlock
   | ToneVoiceBlock
   | SampleCopyBlock

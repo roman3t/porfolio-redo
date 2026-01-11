@@ -1,5 +1,4 @@
 import { ImageAsset } from "@/app/content/guidelines.types";
-import Heading02 from "../heading-02";
 import { Text } from "../ui/Text";
 
 export default function GradientSectionBlock({
@@ -11,7 +10,7 @@ export default function GradientSectionBlock({
 }) {
   return (
     <section className="space-y-6 px-8 mt-8">
-      <Heading02>{title}</Heading02>
+      <Text variant={"h2"}>{title}</Text>
 
       <div className=" grid grid-cols-1 gap-x-10 gap-y-8 md:gap-y-5 md:gap-x-8 md:grid-cols-2">
         {gradients.map((g) => (

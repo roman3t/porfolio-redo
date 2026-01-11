@@ -1,5 +1,4 @@
 import type { Block } from "../../content/guidelines.types";
-import Heading02 from "../heading-02";
 import { Text } from "../ui/Text";
 import ImageCard from "./ImageCard";
 
