@@ -24,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rethinkSans.variable}>
-        <Navbar />
-        <main className="lg:ml-62.5">{children}</main>
-        <Footer />
+        <div className="max-w-7xl mx-auto">
+          <Navbar />
+          <main className="lg:ml-62.5">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

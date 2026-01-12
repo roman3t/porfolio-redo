@@ -18,7 +18,6 @@ export default function SectionLayout({
         <div className="sticky top-24">{left}</div>
       </div>
 
-
       <div className="md:col-span-7 xl:col-span-8">{right}</div>
     </section>
   );
